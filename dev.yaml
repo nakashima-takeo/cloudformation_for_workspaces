@@ -1,5 +1,11 @@
 AWSTemplateFormatVersion: 2010-09-09
 
+Parameters:
+  AdminPassword:
+    NoEcho: true
+    Description: ActiveDirectory用のパスワードです。適当なパスワードを入力してください。
+    Type: String
+
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -37,7 +43,7 @@ Resources:
     Type: AWS::DirectoryService::SimpleAD
     Properties:
       Name: cloudformation.workspaces.test
-      Password: 'Password123'
+      Password: !Ref AdminPassword
       Size: Small
       VpcSettings:
         SubnetIds:
