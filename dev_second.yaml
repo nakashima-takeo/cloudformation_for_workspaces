@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  MyWorkspace:
+    Type: AWS::WorkSpaces::Workspace
+    Properties:
+      BundleId: wsb-2gwlxpxgx # Value with Windows 10 (Server 2019 based) Japanese WSP
+      DirectoryId: !ImportValue simplead-id
+      UserName: admin
+      WorkspaceProperties:
+        ComputeTypeName: VALUE
+        RunningMode: AUTO_STOP
+        RunningModeAutoStopTimeoutInMinutes: 60
+      Tags:
+        - Key: Name
+          Value: "CloudFormation Workspaces"
