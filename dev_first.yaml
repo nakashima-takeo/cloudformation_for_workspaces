@@ -3,9 +3,8 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   AdminPassword:
     NoEcho: true
-    Description: ActiveDirectory用のパスワードです。適当なパスワードを入力してください。
+    Description: Password for ActiveDirectory
     Type: String
-    Default: Passw0rd
 
 Resources:
   VPC:
